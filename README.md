@@ -1,12 +1,12 @@
-# governance
+# commons
 
-Shared principles and governance for the pentaxis93 ecosystem.
+Shared principles and standards for the pentaxis93 ecosystem.
 
 ## What this is
 
-This repo holds the bedrock principles and architectural decision records (ADRs) that govern all pentaxis93 projects. Every ecosystem repo — whether it builds infrastructure, runtime, or methodology — derives its standards from what lives here.
+This repo holds the bedrock principles and architectural decision records (ADRs) that shape all pentaxis93 projects. Every ecosystem repo — whether it builds infrastructure, runtime, or methodology — derives its standards from what lives here.
 
-## Governed repos
+## Ecosystem repos
 
 - **[agentd](https://github.com/pentaxis93/agentd)** — the daemon providing infrastructure
 - **[runa](https://github.com/pentaxis93/runa)** — the cognitive runtime for contract enforcement and artifact tracking
