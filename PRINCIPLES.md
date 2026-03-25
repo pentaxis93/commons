@@ -2,6 +2,8 @@
 
 Seven bedrock principles govern how the pentaxis93 ecosystem makes decisions. Architecture, contract enforcement, and contribution standards derive from these principles or are shown to conflict with them.
 
+**The [ADRs](adr/) are required reading alongside this document.** They contain the enforceable consequences that operationalize these principles. The principles describe what governs; the ADRs describe what that governance prohibits and requires in practice.
+
 ## Context
 
 Autonomous AI agents are becoming dominant users of development infrastructure. The pentaxis93 ecosystem builds the infrastructure for that world: agentd provides the daemon layer, runa handles contract enforcement and artifact tracking as the cognitive runtime, and methodology plugins like Groundwork layer domain methodology on top of that runtime boundary. These principles emerged from sustained practice building and operating agentic systems, not from theory. They connect every component in the ecosystem and govern how they compose.
