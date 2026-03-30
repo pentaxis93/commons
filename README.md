@@ -4,7 +4,7 @@ Shared principles and governance for the pentaxis93 ecosystem.
 
 ## What this is
 
-This repo holds the bedrock principles and architectural decision records (ADRs) that govern all pentaxis93 projects. Every ecosystem repo — whether it builds infrastructure, runtime, or methodology — derives its standards from what lives here.
+This repo holds the bedrock principles, design principles, and architectural decision records (ADRs) that govern all pentaxis93 projects. Every ecosystem repo — whether it builds infrastructure, runtime, or methodology — derives its standards from what lives here.
 
 ## Governed repos
 
@@ -17,6 +17,7 @@ Future pentaxis93 repos inherit these principles by default.
 ## Contents
 
 - **[PRINCIPLES.md](PRINCIPLES.md)** — seven bedrock principles organized as a topology (sovereignty, sequence, grounding, obligation to dissent, recursive improvement, transmission, verifiable completion)
+- **[DESIGN-PRINCIPLES.md](DESIGN-PRINCIPLES.md)** — sixteen engineering judgment principles governing how we think about code (elimination over accommodation, fix at the source, honest naming, correctness over optimization, architecture as communication, review discipline)
 - **[adr/](adr/)** — architectural decision records that operationalize the principles
 
 ## Relationship to individual repos
