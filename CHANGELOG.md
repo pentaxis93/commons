@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Added `EXIT-CODES.md`, defining the shared session-outcome exit code
+  convention for runners and callers, including survey findings, reserved
+  POSIX ranges, caller/runner guidance, and forward-compatibility rules.
+
 ### Changed
 
 - Renamed repo identity from "governance" to "commons" in README. Updated

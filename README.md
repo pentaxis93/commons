@@ -19,6 +19,7 @@ Future repos inherit these principles by default.
 
 - **[PRINCIPLES.md](PRINCIPLES.md)** — seven bedrock principles organized as a topology (sovereignty, sequence, grounding, obligation to dissent, recursive improvement, transmission, verifiable completion)
 - **[DESIGN-PRINCIPLES.md](DESIGN-PRINCIPLES.md)** — sixteen engineering judgment principles governing how we think about code (elimination over accommodation, fix at the source, honest naming, correctness over optimization, architecture as communication, review discipline)
+- **[EXIT-CODES.md](EXIT-CODES.md)** — shared session-outcome exit code contract for runners and callers across the ecosystem
 - **[adr/](adr/)** — architectural decision records that operationalize the principles
 
 ## Relationship to individual repos
