@@ -22,16 +22,22 @@ Two reference forms exist and serve different purposes:
   Useful for humans browsing the current authoritative version. Not
   acceptable as a conformance target: `main` moves.
 - **Conformance (immutable).** Either a commit-SHA URL
-  (`https://raw.githubusercontent.com/tesserine/commons/<sha>/schemas/request/v1/request.schema.json`)
+  (`https://raw.githubusercontent.com/tesserine/commons/<commit-sha>/schemas/request/v1/request.schema.json`)
   or a release-tag URL
-  (`https://raw.githubusercontent.com/tesserine/commons/v0.1.1/schemas/request/v1/request.schema.json`).
-  Methodology vendoring provenance and cross-repo conformance claims must
-  use an immutable form; a conformance claim against a moving target is
-  not a conformance claim.
+  (`https://raw.githubusercontent.com/tesserine/commons/<release-tag>/schemas/request/v1/request.schema.json`).
+  These URLs are schematic; provenance and conformance claims must replace
+  the placeholder token with a real immutable identifier. Methodology
+  vendoring provenance and cross-repo conformance claims must use an
+  immutable form; a conformance claim against a moving target is not a
+  conformance claim.
 
-The versioned path segment (`schemas/request/v1/...`) is independently
-immutable by convention: once published, a `v1` directory does not change
-shape. Breaking changes go to a new directory.
+The versioned path segment (`schemas/request/v1/...`) is the major-version
+URL-stability boundary described by ADR-0005: once published, `v1` keeps
+the same identity and location. Minor and patch releases may evolve the
+content in place only through additive optional fields and clarifications
+that do not break a conforming consumer. Breaking changes go to a new
+directory. Conformance claims pin to a full semver such as `1.0.0`, not
+to the major version alone.
 
 ## Contract
 
@@ -60,9 +66,11 @@ expected to cross-check against this prose.
 Semantic versioning:
 
 - **Minor and patch.** Clarifying rewordings, adding a new optional field
-  that existing producers and consumers can ignore without loss, or
-  tightening descriptions without narrowing the accepted value set.
-  Applied in place at the current `vN/` path; full semver advances.
+  that preserves compatibility for conforming consumers, or tightening
+  descriptions without narrowing the accepted value set. Applied in place
+  at the current `vN/` path while full semver advances. Methodologies and
+  other consumers declare conformance to the specific full semver they
+  vendor, not to the major version alone.
 - **Major.** Removing a field, making an optional field required,
   narrowing a value space, renaming fields, or any other change that can
   break an existing conforming consumer. Requires a new versioned
