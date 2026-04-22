@@ -1,6 +1,5 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://raw.githubusercontent.com/tesserine/commons/main/schemas/request/v1/request.schema.json",
   "title": "Request",
   "description": "Canonical schema for the request artifact — the entry point that triggers a session. Version 1.0.0. commons is the spec authority; REQUEST.md carries the governing prose and ADR-0005 describes the system-conventions pattern under which this lives. When this schema and REQUEST.md disagree, REQUEST.md is authoritative.",
   "type": "object",

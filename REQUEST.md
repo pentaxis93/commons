@@ -55,6 +55,9 @@ Additional properties are not permitted.
 
 The authoritative JSON Schema for this contract lives at
 [`schemas/request/v1/request.schema.json`](schemas/request/v1/request.schema.json).
+The authoritative schema intentionally omits `$id`; machine identity for
+this canonical lives in immutable provenance and conformance references,
+not in embedded schema metadata.
 
 When this document and the schema disagree, **this document is
 authoritative** and the schema is a defect to be corrected. Review catches
@@ -83,5 +86,6 @@ Semantic versioning:
 Methodologies that produce or consume request artifacts embed a copy of
 the canonical schema in their own `schemas/` directory with provenance
 metadata identifying the canonical version they conform to (full semver
-plus commit-SHA or release-tag URL). ADR-0005 describes the full
-system-conventions pattern.
+plus commit-SHA or release-tag URL). That immutable provenance carries the
+canonical machine identity for the vendored copy. ADR-0005 describes the
+full system-conventions pattern.
