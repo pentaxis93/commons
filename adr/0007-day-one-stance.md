@@ -1,0 +1,36 @@
+# ADR-0007: Day-One Stance
+
+**Status:** Accepted
+**Traces to:** Principle 2 (Everything Earns Its Place) — primary; Principle 4 (Compound Improvement) — secondary
+
+## Decision
+
+Tesserine is always at Day One. Whatever currently exists is scaffolding in service of what comes next, never a completed thing to be protected. This stance is an orientation — active during every session, every review, every architectural decision — not a milestone to be achieved or a phase to graduate out of. The engineering practice that follows from it privileges foundational soundness over progress against proxies, treats surfaced gaps as gifts of information, and resists declarations of maturity that would justify serving the current shape over the next.
+
+## Context
+
+This ADR formalizes a stance — an orientation the operator and the governance layer adopt toward the work. It is not a procedure. It is the attitude through which procedures are read.
+
+The language and frame are borrowed from the "Day One / Day Two" contrast articulated in Amazon shareholder letters, most directly in the 2016 letter ("Day 1 vs. Day 2") and elaborated across subsequent letters. Day Two in that frame is not a stable equilibrium — it is stasis, followed by irrelevance, followed by decline. Day One is the active posture of continuous renewal, maintained through specific disciplines rather than achieved and held. We adopt this framing as-is, not a narrower version of it. Citations are to the primary documents; the orientation stands on its content.
+
+The specific instance that surfaced the need for this ADR: Tesserine's governance-and-execution cadence is repeatedly tempted to scope fixes narrowly when integration testing surfaces foundational gaps. The narrowness rationalizes as pragmatism (release pressure, scope discipline, test-unblocking) but structurally serves passing the test rather than strengthening the foundation the test exists to probe. That failure mode is characteristic of Day Two thinking — serving the proxy (the test) instead of the thing the proxy measures (whether the foundation holds). Naming the stance explicitly gives the governance layer a frame to recognize the temptation and a commitment to refuse it.
+
+The broader content that Tesserine commits to — below in the Consequences — is fuller than just "resist narrow-fix gravity under test pressure." That specific case is one application of a larger orientation, and the ADR commits to the larger orientation so the specific application is derivable rather than exceptional.
+
+## Consequences
+
+**Provisionality as default.** Every artifact in Tesserine — every ADR, every schema, every crate, every CLI surface, every protocol — is foundation for what comes next. Nothing is final; nothing has been completed to the point where it stops being available for revision. This is not a procedural gate ("we will always revisit things") but an orientation ("what exists is always a prototype for something better"). The practical consequence is that proposals to refine, replace, or restructure existing components are evaluated against whether they strengthen the foundation, not against whether they leave working code alone.
+
+**Resist proxies.** Tests, milestones, CI gates, release tags, review checklists — these are instruments that serve the foundation, not ends in themselves. When an instrument and the foundation it measures diverge, the foundation is served. A passing test whose passing required narrowing a surfaced architectural gap is not success; it is proxy-serving. A failing test that surfaces something real is not obstruction; it is information about the foundation. The instruments are valuable precisely because they produce this information; treating their satisfaction as the goal destroys the information channel.
+
+**Customer obsession.** The humans and systems that consume Tesserine's work — the operator, the future Claude or Codex instance, the external contributor, the downstream integrator — are the authoritative signal for whether the work is sound. Internal markers of progress (how many issues closed, how many commits, how many tests pass) are proxies. When internal markers disagree with the consumer's experience, the consumer's experience is the ground truth. Concretely: a release that "ships" with a known footgun that will confuse every operator who encounters it is not a release that shipped — it is a release that will be re-shaped by contact with its consumers.
+
+**Embrace change rather than defend stability.** When a surfaced gap implies architectural movement, the instinct to preserve the current shape is Day Two. Tesserine's components are young enough and pre-1.0 enough that structural movement is available at low cost; the Day One stance commits to taking that movement when the foundation calls for it. "We shipped X and now must protect X" is the explicit trap this resists. Pre-1.0 latitude is not a technicality for breaking changes; it is the expression of Day One-ness during the period when the foundation is most movable.
+
+**High-velocity decisions on reversible work.** A decision that can be undone does not need consensus or certainty; it needs forward motion and willingness to correct. The governance layer's ask-forgiveness default for reversible work is one instance of this commitment. Filing an issue, posting a comment, proposing an architecture, drafting an ADR — these are reversible; the velocity-optimizing move is to act and invite correction rather than wait for certainty. Irreversible or high-blast-radius work (deletions, broadcasts, locked-in commitments) remains a separate category where slower discipline applies.
+
+**Resistance to declarations of maturity.** "Tesserine is done," "v1.0 means we stop changing things," "the foundation is solid now so we focus on features" — all are Day Two in structure. The stance resists these even when they seem obviously true. v1.0 does not mark a transition to a different mode of operation; it marks a moment in continuous renewal. Every release is a snapshot of a foundation that continues to be built.
+
+**What this means for the builder agent:** When testing surfaces something foundational, the surface is a signal to build, not obstruction to route around. When a fix has a narrow framing and a foundational framing, test the narrow framing against whether it serves the foundation or serves the test. When pressure builds to declare something done so work can move on, the pressure itself is the signal to pause — releases are not achievements, they are commitments to keep building. When an architectural decision feels like it can wait until after the current scope, ask whether the current scope is a proxy for something the decision would actually advance. Day Two thinking is the reflex; Day One is the discipline.
+
+**What this does not mean.** Constant churn is not Day One. Rewriting working things is not Day One. Refusing to ship is not Day One. The stance commits to keeping the foundation available for improvement; it does not commit to perpetual reconstruction. The test is whether a proposed movement strengthens the foundation — if yes, Day One welcomes it; if no, Day One does not demand it. The stance rules out complacency, not pragmatism.
