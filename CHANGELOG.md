@@ -9,6 +9,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Added ADR-0007 Day-One Stance, formalizing the default orientation
+  toward foundational movability: artifacts are scaffolding for what
+  comes next, proxies serve the foundation rather than replacing it,
+  reversible decisions move at high velocity, and declarations of
+  maturity are resisted.
+- Added ADR-0008 Component Orthogonality in Session Composition,
+  establishing clean boundaries for agentd-managed sessions: agentd
+  composes the container runtime, runa owns `.runa/` content via
+  `runa init`, and the agent declaration expresses operator intent
+  declaratively. The `runa run --agent-command` override carries
+  agentd's chosen command into runa without shell-script slots in
+  declarative config.
+
+## [0.1.1] — 2026-04-21
+
+### Added
+
 - Added `EXIT-CODES.md`, defining the shared session-outcome exit code
   convention for runners and callers, including survey findings, reserved
   POSIX ranges, caller/runner guidance, and forward-compatibility rules.
