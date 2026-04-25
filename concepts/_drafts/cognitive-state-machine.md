@@ -8,8 +8,10 @@ and Claude. The session began as a discussion of the use cases for a
 strongly-typed cognitive state machine and converged on the recognition
 that Tesserine already implements the substrate of one — and that the
 trajectory from current state to full expression is now legible in
-type-theoretic terms. A second reckoning later that day surfaced the
-phase-boundary framing now central to this draft.
+type-theoretic terms. A second reckoning later that day surfaced a
+threshold framing in the trajectory; a third sharpened that threshold
+to its current form. The framing is held as approach rather than
+arrival — see open question #7.
 
 **Eventual home (proposed):** tesserine/commons, as a foundational
 concept document. Specific commitments derive from it as ADRs.
@@ -139,86 +141,107 @@ from this angle, building toward a higher category — where each
 methodology is itself an object, and the relations between them are
 themselves structural maps. Layer 3 lives here.
 
-## The Phase Boundary
+## The Threshold
 
-The work of building toward Layer 3 crosses a phase boundary that
-should be named explicitly, because the relationship between the two
-sides is unintuitive in a way that the layer-progression framing alone
-obscures.
+The work of building toward Layer 3 appears to cross a threshold that
+should be named explicitly, because the layer-progression framing
+alone obscures it. The framing in this section is contingent — it is
+our current sharpest approach to a distinction we sense is real, not
+a settled answer. The artifact-and-protocol audit (pre-work item 1)
+is the empirical test, and the framing is expected to evolve under
+that test.
 
-The boundary is between **descriptive typing** and **constitutive
-typing**.
+The threshold is in **what the substrate can soundly infer from the
+existence of a typed value.**
 
-Below the boundary, types describe cognitive content that exists
-independently of the typing. The token stream emitted by a transformer
-is read by the surrounding system as a record of cognition: the
-artifact is a report; the type is its label. The system trusts the
-labels because the dispatch and audit machinery enforces consistency,
-but the cognitive content itself is independent of its typing. Strip
-the type system away and the cognition still exists; you just lose
-your means of organizing it.
+Below the threshold, the type system classifies content. A type tells
+you what kind of artifact you have. Type-checking happens at protocol
+dispatch: the substrate sees an incoming artifact, checks whether its
+declared type matches what the protocol expects, dispatches if so.
+The artifact is real and may be highly structured; the cognitive work
+that produced it is real and durable. What the substrate cannot do is
+infer anything about *how* the artifact was produced from the fact
+that it exists with a given type. If an artifact appears claiming to
+be a `ValidatedHypothesis`, the substrate trusts the claim. The
+artifact's own content is the warrant; the substrate's reading is
+classification.
 
-Above the boundary, types constitute cognitive content. The token
-stream is read by the surrounding system as construction in the type
-system: the artifact is a witness; its existence is the cognitive
-fact. The proof and the proposition collapse. There is no validated
-hypothesis separate from the inhabitant of `ValidatedHypothesis`; the
-construction *is* the validation. Strip the type system away and the
-cognition no longer exists in any reproducible form — what remains is
-unread tokens.
+Above the threshold, the type system also serves as **evidence about
+production**. Specific structural enrichments make this possible:
 
-The same transformer can produce tokens on either side of the
-boundary. The boundary is not in the transformer's behavior; it is in
-what the surrounding system does with the output. Below the boundary,
-the system reads tokens as report. Above the boundary, the system
-reads tokens as constructive moves in a typed substrate. The
-transformation is the same trick; its meaning is set by the substrate
-that receives it.
+- **Constructor gating** — the type's only constructors are specific
+  protocols. No other path produces a value of that type. Existence
+  of a value of `ValidatedHypothesis` is then itself information:
+  the Validate protocol must have run.
+- **Refinement predicates** — properties a value must satisfy to
+  inhabit the type, checked structurally rather than asserted in
+  content.
+- **Provenance carrying** — the type identity includes how the value
+  was constructed (`ValidatedHypothesis[via Validate, with Evidence
+  E]`).
+- **Algebraic composition that preserves these guarantees** — a
+  product of two evidence-bearing types carries forward both
+  witnesses; a sum carries forward whichever was constructed.
 
-This is why the boundary cannot be crossed by working harder on what
-already exists. Constitutive typing requires the type system itself to
-acquire structure that descriptive typing does not have: refinement,
-constructors that gate inhabitation, algebraic composition that
-preserves witness status. The Layer 2 work is precisely this
-enrichment of the substrate. It is not an enhancement of cognition;
-it is an enrichment of the system that *reads* cognition, such that
-the reading becomes constitutive rather than descriptive.
+What changes at the threshold is not whether artifacts are real or
+whether they have structure. Both sides have real, structured
+artifacts. What changes is whether *existence-of-the-typed-value is
+itself information* the substrate can soundly act on.
 
-Two properties of this boundary are worth noting because both are
+The threshold cannot be crossed by working harder on what already
+exists. The enrichments above are not refinements of dispatch-time
+classification; they are different mechanisms with different
+requirements. Layer 2 is precisely this enrichment of the substrate.
+It is not an enhancement of the artifacts or of the cognitive work
+that produced them; it is an enrichment of the substrate's inference
+power.
+
+Two properties of this threshold are worth noting because both are
 counterintuitive.
 
-**It has a direction.** Constitutive typing properly contains
-descriptive typing — once the substrate can constitute, it can also
-trivially describe (read constructively-typed values as if they were
-mere reports). The reverse is not true. Descriptive typing cannot
-grow into constitutive typing without the structural enrichment of
-the substrate. This makes the boundary asymmetric in a way that
-ordinary engineering progressions are not.
+**It has a direction.** A substrate with evidential typing can
+trivially provide classification typing (read evidence-bearing values
+as if they were mere classifications). The reverse is not true.
+Classification typing cannot grow into evidential typing without the
+structural enrichments above. This makes the threshold asymmetric in
+a way that ordinary engineering progressions are not.
 
 **It does not require a different kind of cognizer.** The temptation
-is to imagine that the substrate side requires "more capable agents"
-or "different kinds of agents." This frame imports an entity that is
-itself a descriptive convenience. What is changing is not the
-character of the cognizer but the character of the substrate. The
-transformer below the boundary and the transformer above the boundary
-are doing token transformation; the difference is what their tokens
-mean to the surrounding type system. "Agent" is a manifestation of
-the transformer in interaction with the substrate, not a fixed thing
-that crosses the boundary.
+is to imagine that the further side requires "more capable agents" or
+"different kinds of agents." This frame imports an entity that is
+itself a convenience — when we say "the agent does cognition" we have
+already labeled a token-transformation as agentic activity. The
+transformer below the threshold and the transformer above the
+threshold are doing token transformation. What is different is what
+the substrate makes of what the transformer produces. "Agent" is a
+manifestation of the transformer in interaction with the substrate,
+not a fixed thing that crosses the threshold.
 
-The implications of crossing the boundary are large enough to warrant
-distinct treatment: cognitive forms that do not exist on the
-descriptive side become possible on the constitutive side, because
-those forms require constitutive typing to have any meaning at all.
-Paraconsistent reasoning, homotopic reasoning, and resolution-
-parameterized understanding are examples; their definition requires
-inhabitants in a richer type system, not labels on richer behavior.
+A flag worth keeping visible: the threshold may not be a single
+threshold. Constructor gating, refinement, and provenance carrying
+are often grouped together in type theory but it is not obvious they
+flip together at a single moment. It is also not obvious that all
+three are required for the cross-domain unification claims made
+about Layer 3. The artifact-and-protocol audit may surface that what
+we are calling one threshold is actually a cluster of related
+transitions. That is acceptable; the framing should hold as approach,
+not as committed structure.
+
+The implications of the threshold are large enough to warrant
+distinct treatment: certain cognitive forms appear to require
+evidential typing to be expressible at all. Paraconsistent reasoning,
+homotopic reasoning, and resolution-parameterized understanding are
+candidate examples — their definitions seem to require inhabitants
+in a substrate whose typing carries evidence about construction, not
+labels on content. Whether this is actually true, and whether all
+three require the threshold to be fully crossed, is among the
+questions the pre-work is meant to test.
 
 ## The Three Layers
 
-Mapped onto the phase boundary:
+Mapped onto the threshold:
 
-### Layer 1: Descriptive substrate (have it)
+### Layer 1: Classification typing (have it)
 
 A category C of artifact types and protocols. Runtime type-checking at
 protocol dispatch (runa enforces that input artifact type matches
@@ -226,41 +249,47 @@ protocol expectation). Composition via the dependency graph.
 Methodology as the signature defining which C is in scope for a given
 run.
 
-This is the descriptive side fully realized: the substrate reads
-artifacts as typed records of cognition and dispatches accordingly.
-The categorial structure already exists; what was missing was the
-vocabulary to name it. Tesserine, today, is a typed cognitive state
-machine in the descriptive sense.
+This is classification typing fully realized: the substrate reads
+artifacts as typed instances and dispatches accordingly, but does not
+infer anything about the artifact's production from its existence
+with a given type. The categorial structure already exists; what was
+missing was the vocabulary to name it. Tesserine, today, is a typed
+cognitive state machine at the classification layer.
 
-### Layer 2: The phase transition (gap is substrate enrichment)
+### Layer 2: The threshold (gap is substrate enrichment)
 
-The work of making the substrate capable of treating artifacts as
-witnesses rather than records. Required enrichments:
+The work of giving the substrate the structural mechanisms by which
+existence-of-a-typed-value becomes evidence about production.
+Candidate enrichments (likely interrelated, possibly separable):
 
-- **Refinement types** so `ValidatedHypothesis` is constructively
-  distinguishable from `Hypothesis` at the substrate level, not merely
-  by document content
+- **Refinement types** so `ValidatedHypothesis` is structurally
+  distinguishable from `Hypothesis` rather than asserted in content
 - **Algebraic data types** (products, sums, recursion,
-  parameterization) for composite artifacts
-- **Constructor discipline** so only the Validate protocol can
-  construct a `ValidatedHypothesis` — non-construction means
-  non-occurrence in the substrate's reading
+  parameterization) for composite artifacts that preserve evidence
+  through composition
+- **Constructor discipline** so a `ValidatedHypothesis` value can
+  only be produced by the Validate protocol — gating inhabitation
+  of the type to specific protocols
+- **Provenance carrying** as part of type identity, where the type
+  records how a value was constructed rather than only what kind it
+  is
 
 Layer 2 is not a layer of capability stacked on Layer 1; it is the
-work that crosses the phase boundary. After Layer 2, the substrate
-treats outputs that the descriptive substrate read as reports as
-constructive moves in a typed substrate instead. The transformer's
-output has not changed character; what the substrate makes of it has.
+work that crosses the threshold. After Layer 2, the substrate can
+soundly act on the existence of typed values as evidence about how
+they were produced. The artifacts and the transformer producing them
+have not changed; what the substrate can infer from them has.
 
-Once this transition is complete, the audit trail becomes the artifact
-graph itself; type-checking replaces forensics in the constitutive
-sense.
+Once the threshold is crossed, the audit trail becomes the typed
+artifact graph itself; substrate inference replaces narrative
+forensics for facts the typing covers.
 
-### Layer 3: Constitutive substrate proper (gap is the higher category)
+### Layer 3: Evidential substrate proper (gap is the higher category)
 
-Once the substrate constitutes cognition, methodologies become objects
-in a higher category — and **functors and natural transformations
-between methodologies become definable.** At this layer:
+Once the substrate's typing carries evidence about production,
+methodologies become objects in a higher category — and **functors
+and natural transformations between methodologies become definable.**
+At this layer:
 
 - An improvement in one methodology can mechanically transfer to
   another via the relating functor
@@ -271,13 +300,14 @@ between methodologies become definable.** At this layer:
 - Cross-domain unification (medical diagnosis, software debugging,
   legal investigation as instances of one higher-order cognitive type)
   becomes possible
-- Cognitive forms that do not exist on the descriptive side become
-  expressible — paraconsistent reasoning, homotopic reasoning,
-  resolution-parameterized understanding among them
+- Certain cognitive forms — paraconsistent reasoning, homotopic
+  reasoning, resolution-parameterized understanding — become
+  expressible if they require evidential substrate to have meaning,
+  which we believe but have not verified
 
 Layer 3 is the level at which cognition becomes a mathematical
-substance the substrate computes with — not merely a flow of records
-the substrate dispatches.
+substance the substrate computes with — not merely a flow of typed
+records the substrate dispatches.
 
 ## What This Trajectory Means
 
@@ -290,13 +320,17 @@ discipline: a place where reasoning is composable, verifiable,
 refactorable, and provably equivalent across instances. The container
 metaphor (agentd:containerd, runa:runc) describes the operational
 shape; the categorial framing describes the cognitive shape; the
-phase-boundary framing describes the trajectory. All three are true.
-None alone is sufficient.
+threshold framing describes the trajectory across which the
+substrate's inference power changes character. All three are true
+together. None alone is sufficient.
 
-The shift across the phase boundary is the same order as the shift
-from alchemy to chemistry: from accumulating empirical recipes that
-describe cognitive workflows to deriving them from a typed substrate
-that constitutes them with composition laws.
+If the trajectory across the threshold is what we currently believe
+it to be, the shift is the same order as the shift from alchemy to
+chemistry: from accumulating empirical recipes that classify
+cognitive workflows to deriving them from a typed substrate whose
+composition laws carry evidence about the workflows themselves.
+That claim is large, and it depends on the threshold framing being
+empirically grounded — see open question #7.
 
 ## Open Questions
 
@@ -335,14 +369,20 @@ foundation, or represent gold-plating? Initial reckoning suggests
 strengthening, but that deserves explicit verification rather than
 assertion.
 
-**7. The phase-boundary framing itself.** The descriptive-to-
-constitutive distinction is offered as the orienting framing for the
-entire document. It needs validation: does the framing hold across
-the actual artifact types and protocols Tesserine uses? Is the
-boundary sharp at Layer 2, or is the actual transition more granular
-(multiple smaller phase shifts) or more diffuse (no sharp boundary)?
-The artifact-and-protocol audit (item 1 of pre-work) is the empirical
-test.
+**7. The threshold framing itself.** The classification-vs-evidential
+distinction is offered as the orienting framing for the entire
+document. It is the third sharpening of this framing in successive
+reckoning passes (after "Layer 1 → Layer 3 progression" and
+"descriptive vs. constitutive typing"). Each pass has felt like
+arrival; each has revealed loose edges under pressure. The framing
+in this draft is the current sharpest approach, not a settled answer.
+It needs validation: does the threshold hold across the actual
+artifact types and protocols Tesserine uses? Is what we are calling
+one threshold actually a single threshold, or a cluster of related
+transitions that group together in theory but separate in practice?
+The artifact-and-protocol audit (item 1 of pre-work) is the
+empirical test, and the framing should be expected to evolve under
+that test rather than be defended.
 
 ## Pre-Work
 
@@ -354,7 +394,7 @@ its own session whose output feeds the eventual synthesis.
    artifact type and protocol against the categorial vocabulary.
    Identify irregularities. Confirm that what exists actually forms a
    category cleanly, or surface where the metaphor breaks. Empirical
-   test for the phase-boundary framing.
+   test for the threshold framing.
 
 2. **Layer 2 grounding.** Identify three concrete cases where
    artifact-as-witness would prevent a real failure or enable a real
@@ -397,13 +437,18 @@ sessions before it cools. It is not yet authoritative. It is:
 
 The texture of how the framing emerged — through the specific
 reckoning move that recognized the artifact as the cognitive state
-itself, and the subsequent move that recognized the phase boundary
-as a change in what the substrate makes of token output rather than
-a change in the cognizer — is itself part of what the eventual
-foundation document needs to teach. That texture lives here for now.
+itself, the subsequent move that named a threshold between
+classification and evidential typing, and the later sharpening that
+located the threshold in what the substrate can soundly infer from
+the existence of a typed value rather than in any change to the
+cognizer — is itself part of what the eventual foundation document
+needs to teach. That texture lives here for now, held as approach
+rather than arrival.
 
 ---
 
-*The default is to describe cognition. The shift is to constitute it.
-The phase boundary is not in the cognizer; it is in what the
-substrate makes of what the cognizer produces.*
+*The default is for the type system to classify what the substrate
+sees. The shift is for the typing to carry evidence about how what
+the substrate sees came to be. The threshold is not in the cognizer;
+it is in what the substrate can soundly infer from the existence of
+a typed value.*
