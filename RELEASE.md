@@ -36,7 +36,7 @@ The operator does not perform any of these steps independently. Splitting the op
 
 ## Verification
 
-After the push, on a fresh clone of the tag, build the workspace and check that every shipped binary self-reports the version the tag names:
+After the push, on a fresh clone of the tag, build the workspace and check that every shipped binary — the `[[bin]]` targets declared across the workspace's member crates — self-reports the version the tag names:
 
 ```
 checkdir=$(mktemp -d)
