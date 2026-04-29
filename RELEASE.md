@@ -24,7 +24,7 @@ One command:
 cargo release <level> --execute
 ```
 
-Where `<level>` is `patch`, `minor`, or `major`. The command performs, in order, as a single atomic operation:
+Where `<level>` is `patch`, `minor`, or `major`. The command performs, in order, as a single indivisible step from the operator's perspective:
 
 1. Bumps the workspace `Cargo.toml` version by the requested level.
 2. Rolls `CHANGELOG.md`'s `[Unreleased]` heading into `[X.Y.Z] — YYYY-MM-DD`.
@@ -39,8 +39,9 @@ The operator does not perform any of these steps independently. Splitting the op
 After the push, on a fresh clone of the tag, build the workspace and check that the binary self-reports the version the tag names:
 
 ```
-git clone --branch vX.Y.Z --depth 1 <repo-url> /tmp/release-check
-cd /tmp/release-check
+checkdir=$(mktemp -d)
+git clone --branch vX.Y.Z --depth 1 <repo-url> "$checkdir"
+cd "$checkdir"
 cargo build --release
 ./target/release/<binary> --version
 ```
