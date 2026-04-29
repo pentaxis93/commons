@@ -43,9 +43,11 @@ checkdir=$(mktemp -d)
 git clone --branch vX.Y.Z --depth 1 <repo-url> "$checkdir"
 cd "$checkdir"
 cargo build --release
-for binary in <binary>...; do
+for binary in <bin1> <bin2>; do
     ./target/release/"$binary" --version
 done
+cd -
+rm -rf "$checkdir"
 ```
 
 For each binary the workspace ships, the output must include `X.Y.Z`. If any binary reports otherwise, the workspace-version invariant has been violated and the release is invalid; see *Failure modes* below.
@@ -58,13 +60,14 @@ For each binary the workspace ships, the output must include `X.Y.Z`. If any bin
 
 **Workspace-version invariant violated.** The binary at the tag self-reports the wrong version. Do not amend the tagged commit. The remediation path is the same as for "Tag already exists upstream" and inherits the same external-consumer constraint: if no external consumers exist, delete the tag (locally and remotely), correct `Cargo.toml`, and re-release; if external consumers exist, the invalid tag enters the public record and the remediation is to cut the next version, because public-tag rewriting is a larger problem with consequences beyond this document.
 
-**`cargo release` aborts mid-operation.** A network failure between commit and push can leave the local repo bumped and tagged without the push having landed. Resumption — finishing pushes the tool initiated but could not deliver — is completion of the in-flight operation, not splitting it. Confirm the commit and tag are present locally and not yet upstream, then `git push --follow-tags` to complete the operation. If the remote already received the commit but not the tag, `git push origin vX.Y.Z` finishes the push.
+**`cargo release` aborts mid-operation.** A network failure between commit and push can leave the local repo bumped and tagged without the push having landed. Confirm the commit and tag are present locally and not yet upstream, then `git push --follow-tags` to complete the in-flight operation. If the remote already received the commit but not the tag, `git push origin vX.Y.Z` finishes the push. Do not re-run `cargo release`; this is not a new release, it is the same one finishing.
 
 ## Out of band
 
 The following are not part of this document and are intentionally excluded:
 
 - **GitHub release notes.** Whether and how to author a release on GitHub is a separate concern; the tag is the canonical release artifact, the GitHub release is presentation.
+- **Registry publishing.** The release operation does not push to crates.io or any other registry. If the ecosystem decides to publish to a registry, that becomes a separate convention. The tag is the canonical release artifact.
 - **Artifact signing.** Not currently practiced; if and when introduced, signing becomes its own convention.
 - **Pre-release identifiers** (`-rc.N`, `-beta.N`). Deferred until the ecosystem needs them.
 - **CHANGELOG authoring** — what entries qualify, voice, granularity. This document covers only the operational roll of `[Unreleased]` into a versioned section at release time.
