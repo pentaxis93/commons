@@ -43,7 +43,9 @@ checkdir=$(mktemp -d)
 git clone --branch vX.Y.Z --depth 1 <repo-url> "$checkdir"
 cd "$checkdir"
 cargo build --release
-./target/release/<binary> --version
+for binary in <binary>...; do
+    ./target/release/"$binary" --version
+done
 ```
 
 For each binary the workspace ships, the output must include `X.Y.Z`. If any binary reports otherwise, the workspace-version invariant has been violated and the release is invalid; see *Failure modes* below.
@@ -54,7 +56,7 @@ For each binary the workspace ships, the output must include `X.Y.Z`. If any bin
 
 **Tag already exists upstream.** The release was attempted twice or the tag was created out of band. If the existing tag has no external consumers, delete it locally and remotely (`git tag -d vX.Y.Z && git push origin :refs/tags/vX.Y.Z`) and re-release. If the tag has external consumers, treat it as immutable: cut the next version instead. Public-tag rewriting is a larger problem with consequences beyond this document.
 
-**Workspace-version invariant violated.** The binary at the tag self-reports the wrong version. Do not amend the tagged commit. Delete the tag (locally and remotely), correct `Cargo.toml`, and re-release. The remediation path is the same as for "tag exists upstream" — the invariant violation makes the tag invalid, and an invalid tag is removable.
+**Workspace-version invariant violated.** The binary at the tag self-reports the wrong version. Do not amend the tagged commit. The remediation path is the same as for "Tag already exists upstream" and inherits the same external-consumer constraint: if no external consumers exist, delete the tag (locally and remotely), correct `Cargo.toml`, and re-release; if external consumers exist, the invalid tag enters the public record and the remediation is to cut the next version, because public-tag rewriting is a larger problem with consequences beyond this document.
 
 **`cargo release` aborts mid-operation.** The atomicity is best-effort: the tool sequences the operation, but a network failure between commit and push can leave the local repo bumped and tagged without the push having landed. Recovery: confirm the commit and tag are present locally and not yet upstream, then `git push --follow-tags` to complete the operation. If the remote already received the commit but not the tag, `git push origin vX.Y.Z` finishes the push.
 
