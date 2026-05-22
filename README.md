@@ -14,3 +14,7 @@ durable, shared practice.
   — how a deployment (a host) is documented: what a deployment's documentation
   must contain, what makes it usable rather than merely descriptive, and how it
   relates to the shared baseline a host is built from.
+- [`install-fcos.sh`](install-fcos.sh) and
+  [`fcos-host-setup/`](fcos-host-setup/) — a reusable Fedora CoreOS host-setup
+  baseline for installing FCOS from rescue mode and applying the baseline SSH
+  development environment on a fresh host.

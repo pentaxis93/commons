@@ -1,0 +1,38 @@
+# FCOS host dev environment — canonical layered package list.
+#
+# Layered onto the FCOS base via `rpm-ostree install`. Each line is one
+# Fedora package name. Comments and blank lines are ignored by setup.sh.
+#
+# See README.md for the reasoning behind each tool's inclusion.
+
+# Shell
+zsh
+
+# Editor
+helix
+
+# Source control
+git
+git-lfs
+git-delta
+gh
+
+# Modern Unix replacements
+ripgrep
+fd-find
+bat
+lsd
+fzf
+zoxide
+
+# Standard utilities
+# jq is in the FCOS base (rpm-ostree reports "Inactive requests" when listed
+# here). Phase 2 / setup.sh relies on jq being callable; that reliance is
+# safe because the base provides it. If a future FCOS version drops jq from
+# base, add it back here.
+tree
+htop
+btop
+wget
+unzip
+p7zip
