@@ -81,7 +81,7 @@ path.
 For tools that ship as **single static binaries** with their own update story,
 or that are not packaged in Fedora repos.
 
-- Lives in `/var/home/core/.local/bin`, persistent across rpm-ostree upgrades.
+- Lives in `~/.local/bin`, persistent across rpm-ostree upgrades.
 - Each tool's update mechanism is appropriate to it (Claude Code auto-updates
   in process; Codex checks at launch; lazygit/lf/bw updated by re-running
   this script).
