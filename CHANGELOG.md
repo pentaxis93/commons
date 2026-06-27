@@ -4,6 +4,11 @@ All notable changes to this repository are recorded here.
 
 ## Unreleased
 
+- Stood up the golden-rules register (`golden-rules/`) — domain-specific
+  architectural rules, rooted in principle and master-curated. The index
+  states the **rooted-in** relation (a golden rule cites the universals in
+  `pentaxis93/principles`; it is not a corpus *projection*) and lists the five
+  founding rules as unfleshed seeds, fleshed one at a time per the homing epic.
 - Started an ADR register (`adr/`) and recorded
   [ADR-0001: Repository Merge and History Policy](adr/0001-repository-merge-and-history-policy.md)
   — squash-or-rebase merges (no merge commits) with enforced linear history

@@ -13,6 +13,10 @@ durable, shared practice.
 - [`adr/`](adr/) — architectural decision records for cross-cutting decisions
   that apply across more than one pentaxis93 project. See the
   [register](adr/README.md) for the index.
+- [`golden-rules/`](golden-rules/) — domain-specific architectural rules,
+  rooted in principle and master-curated. See the
+  [register](golden-rules/README.md) for what a golden rule is, how it cites
+  the universals beneath it, and the stratum's members.
 - [`DEPLOYMENT-DOCUMENTATION-DISCIPLINE.md`](DEPLOYMENT-DOCUMENTATION-DISCIPLINE.md)
   — how a deployment (a host) is documented: what a deployment's documentation
   must contain, what makes it usable rather than merely descriptive, and how it
