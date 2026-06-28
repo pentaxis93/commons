@@ -50,10 +50,10 @@ structure of the genuinely-atomic multi-commit pull requests that do exist.
 Allowing squash *or* rebase under enforced linear history takes the benefit of
 each and the cost of neither, while still removing the merge commit.
 
-This policy mirrors the sibling
-[tesserine ecosystem's ADR-0018](https://github.com/tesserine/commons/blob/main/adr/0018-repository-merge-and-history-policy.md),
-adopted here as a cross-cutting pentaxis93 convention so the two share one
-history discipline.
+This ADR is the pentaxis93 base layer's merge-and-history policy. The Tesserine
+ecosystem's [`commons`](https://github.com/tesserine/commons) inherits this base
+rather than restating it, so one history discipline governs both projects (the
+inheritance is declared on the Tesserine side).
 
 ## Consequences
 
@@ -74,10 +74,11 @@ history discipline.
   source of truth for the configuration; this ADR is the decision and its
   rationale, not a mirror of the settings. There is no automated drift check
   between the two today.
-- **Plan limitation.** On this account's current plan, branch protection — and
-  therefore linear-history *enforcement* — is available only on **public**
-  repositories. Private repositories conform in their merge methods but cannot
-  carry the protection rule until they are made public or the account moves to a
-  plan that supports private-repository protection. At adoption, the active
-  public repositories enforce linear history; the active private repositories
-  rest on the merge-method configuration alone.
+- **Plan limitation (pentaxis93 account).** On the pentaxis93 account's current
+  plan, branch protection — and therefore linear-history *enforcement* — is
+  available only on **public** repositories. Private repositories conform in
+  their merge methods but cannot carry the protection rule until they are made
+  public or the pentaxis93 account moves to a plan that supports
+  private-repository protection. The active public repositories enforce linear
+  history; the active private repositories rest on the merge-method
+  configuration alone.
