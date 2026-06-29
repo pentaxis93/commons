@@ -134,6 +134,11 @@ language's documented guarantees, and restates neither wholesale.
   — the substance beneath [*State is the interface*](../golden-rules/state-is-the-interface.md)
   and [*Architectural layers bounded by contracts*](../golden-rules/architectural-layers-bounded-by-contracts.md)
   — is enforced by the compiler rather than left to discipline.
+- **kin** — [Flutter wherever there is a user interface](flutter-where-ui.md): the
+  two conventions partition the build by the seam between the human surface and
+  the machinery beneath it. Rust is the standing answer for the implementation
+  work; Flutter is the standing answer where there is a user interface. Each
+  names its own side, and the boundary one draws is the domain the other holds.
 
 ## Sources
 
