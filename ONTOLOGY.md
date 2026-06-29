@@ -60,24 +60,21 @@ the defining discipline of the whole body
 - An **architectural golden rule** is a master's near-universal, cross-domain
   choice for a class of work, **`rooted-in`** the universals it cites — a
   citation upward, not a projection downward (the
-  [register](golden-rules/README.md) draws that distinction precisely). Members:
-  *State is the interface*, *Architectural layers bounded by contracts*, *Right
-  Action*.
+  [register](golden-rules/README.md) draws that distinction precisely). Its
+  members are listed in that register.
 - A **convention** is a master's domain-specific choice — the pragmatic layer
   that makes the architectural rules concrete enough for the agents that build
   the code. It is **`rooted-in`** principle and operationalizes the architectural
-  rules for one domain. Members: *Rust wherever it can be done cleanly*, *Flutter
-  wherever there is a user interface*, *the multi-dimensional contract*,
-  *Roadmap graph*.
+  rules for one domain. Its members are listed in the [conventions
+  register](conventions/README.md).
 - A **decision / ADR** is a single past choice carrying its rationale,
   **`traces-to`** the principles it serves, and may **`instantiate`** a golden
-  rule. It is frozen: a superseded decision is tombstoned, not rewritten. Member:
-  ADR-0001 (the repository merge-and-history policy).
+  rule. It is frozen: a superseded decision is tombstoned, not rewritten. Its
+  members are listed in the [ADR register](adr/README.md).
 - A **concrete asset** is a reusable artifact — a baseline, a script, a
-  discipline document — that **instantiates** the bands above. Members: the FCOS
-  host-setup baseline ([`install-fcos.sh`](install-fcos.sh) +
-  [`fcos-host-setup/`](fcos-host-setup/)), the
-  [deployment-documentation discipline](DEPLOYMENT-DOCUMENTATION-DISCIPLINE.md).
+  discipline document — that **instantiates** the bands above. Its members are
+  the repository's reusable artifacts, indexed in the
+  [repository contents](README.md) and legible from where each lives.
 
 The band is legible from where an asset lives: a file under `golden-rules/` is an
 architectural rule, one under `adr/` is a decision, the corpus is the principle
