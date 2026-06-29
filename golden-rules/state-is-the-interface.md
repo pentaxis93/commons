@@ -12,21 +12,25 @@
 
 ## The rule, precisely
 
-State is the interface **of authority**. A component holds no authority beyond
-the present configuration it can read and the operation it can apply to it.
-Coordination happens because each operation changes the state that later
-operations read: actors never meet one another — they meet only in the trace
-each leaves. None hosts another; none need be running for another to proceed;
-the coordination truth is written down, now, and is therefore inspectable at
-every instant.
+State is the interface **of authority**. A component carries nothing of its own
+across the boundary — no private authority, no plan held in reserve; it has only
+the present configuration it can read and the operation it can apply to what it
+finds there. Coordination happens because each operation changes the
+configuration that later operations read: actors never meet one another — they
+meet only in the trace each leaves. None hosts another; none need be running for
+another to proceed; the coordination truth is written down, now, and is
+therefore inspectable at every instant.
 
-The state is the interface of authority; the **response functions** — the code,
-invariants, permissions, and domain constraints a component runs — are the
-trained capacities that read the state and transform it. "No held plan" is not
-"no structure": the plan does not live in a running coordinator, but the
-response function does the work of reading the present pressure and converging
-on it. Authority lives in the medium; capability lives in the response function;
-neither lives in a private, running executive.
+What a component brings is not content but **capacity**. The **response
+functions** — the code, invariants, permissions, and domain constraints it runs
+— are its trained ability to read what is present and answer it; the work to be
+done, the truth it answers to, and the continuity it hands on are not held
+within the component but stand in the shared field, which it meets reading what
+is there and leaves having written what now is. "No held plan" is not "no
+structure": structure is in the response function — *how* to read and act —
+while *what* to act on is in the state. Authority is in the medium; capacity is
+in the actor; nothing of substance passes between them but the reading and the
+writing.
 
 ## Rooted in principles
 
@@ -49,9 +53,10 @@ not one of them.
 A golden rule earns its standing by instancing a structure deeper than itself —
 a principle beneath, a master above. The structure this rule projects:
 
-> Authority lives in the medium all legitimate actors can perceive and change;
-> action is a bounded local response to that medium's present pressure;
-> coordination emerges through the trace left in the medium.
+> Authority lives in the present medium all legitimate actors can perceive and
+> change; each actor meets that medium empty — carrying no work and no plan of
+> its own — and acts as a bounded local response to the pressure present there;
+> continuity is the trace left in the medium, never anything an actor holds.
 
 Reduced to its loop:
 
@@ -59,7 +64,7 @@ Reduced to its loop:
 present configuration → perceived pressure → local response → changed configuration
 ```
 
-— with no persistent executive actor required inside the loop.
+— no actor persists inside the loop to carry the thread; the configuration carries it.
 
 This structure is not a software convenience. It appears independently in
 stigmergic coordination (an action's trace in a medium stimulates the next
@@ -111,17 +116,24 @@ state is also what decides which pressure is worth answering.
 ## Cross-domain evidence: nondual responsive action
 
 The invariant this rule projects is independently carried by a contemplative
-shape: action that arises from present conditions, leaves a trace, and requires
-no separate executive self. Its precise name is **nondual responsive action** —
-Daoist *wu-wei / ziran* names the action-mode (effective action without forcing
-intention), Buddhist *not-self / dependent arising* names the no-controller
-ontology (action as a conditioned event, not the act of an enduring agent), and
-Chan/Zen *no-mind* is the integrated shorthand. The same load-bearing relations
-hold across the mapping: authority in present conditions rather than a stored
-plan; coherent action without a sovereign executor; continuity carried by the
-trace/stream rather than an actor-owned plan; and corruption taking the same
-form on both sides — a private continuity (a stale controller; a clung plan)
-overriding present conditions.
+shape: the actor meets the present empty — carrying no plan and no self to
+assert — and what is present comes forth of its own accord to be answered;
+action is that answer, and it leaves a trace that conditions what comes next.
+Its precise name is **nondual responsive action**. Daoist *wu-wei* names the act
+— effective response without forcing intention — and *ziran*, the self-so, names
+its ground: the world unfolding of itself, the field the empty actor answers
+rather than authors. Buddhist *not-self / dependent arising* names the
+no-controller ontology — action as a conditioned event, not the act of an
+enduring agent. Chan/Zen *no-mind*, and Dōgen's *genjō* — the present
+manifesting here and now — name the integrated shape: the actor so empty that
+the present meets it without obstruction, and the work comes forth from the
+field rather than from a self carried into it. The same load-bearing relations
+hold across the mapping: authority in what is present rather than a stored plan;
+the actor empty of its own continuity; coherent action without a sovereign
+executor; continuity carried by the trace rather than anything an actor holds;
+and corruption taking the same form on both sides — a private continuity carried
+forward (a stale controller, a clung plan, a self asserted over what is)
+overriding the present.
 
 This congruence is **load-bearing but not load-sufficient.** It supports the
 rule as one cross-domain expression of a real invariant; it is not an identity.
