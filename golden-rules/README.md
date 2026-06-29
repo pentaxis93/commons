@@ -53,15 +53,16 @@ projection mechanism stays internal to the corpus.
 
 ## The rules
 
-The five rules below are the stratum's founding members. Each is an **unfleshed
-seed**: its evocative capture is held intact in the stratum's tracker work, and
-each is fleshed into its own durable form **one at a time**, in the sequence the
-homing epic carries (#6). The seed is captured richly first and flattened never;
-fleshing is a later, sequenced move, not this register's job.
+The five rules below are the stratum's founding members. Each enters as an
+**unfleshed seed** — its evocative capture held intact in the stratum's tracker
+work — and is fleshed into its own durable form **one at a time**, in the
+sequence the framing epic carries (#14). The seed is captured richly first and
+flattened never; fleshing is a later, sequenced move, not this register's job. A
+rule's **Status** links to its fleshed home once that fleshing lands.
 
 | Rule | Rooted in | Domain | Status |
 | --- | --- | --- | --- |
-| **State is the interface** — components meet only through durable, legible state: read it, write it; the state is the single source of truth and the only thing between them. | [Traceability](https://github.com/pentaxis93/principles/blob/main/principles/traceability.md) · [Verifiable Completion](https://github.com/pentaxis93/principles/blob/main/principles/verifiable-completion.md) · [Single Home](https://github.com/pentaxis93/principles/blob/main/principles/single-home.md) | System architecture | seed |
+| **State is the interface** — components meet only through durable, legible state: read it, write it; the state is the single source of truth and the only thing between them. | [Traceability](https://github.com/pentaxis93/principles/blob/main/principles/traceability.md) · [Verifiable Completion](https://github.com/pentaxis93/principles/blob/main/principles/verifiable-completion.md) · [Single Home](https://github.com/pentaxis93/principles/blob/main/principles/single-home.md) | System architecture | [fleshed](state-is-the-interface.md) |
 | **Architectural layers bounded by contracts** — each layer depends on the *contract* of the layer it uses, never its implementation; implementations are swappable adapters behind the boundary. | [Sovereignty](https://github.com/pentaxis93/principles/blob/main/principles/sovereignty.md) · [Evolvability](https://github.com/pentaxis93/principles/blob/main/principles/evolvability.md) · [Parsimony](https://github.com/pentaxis93/principles/blob/main/principles/parsimony.md) | System architecture | seed |
 | **Rust wherever it can be done cleanly** — where a component can be written cleanly in Rust, Rust is the default, not a candidate; correctness made structural by the type system. | [Verifiable Completion](https://github.com/pentaxis93/principles/blob/main/principles/verifiable-completion.md) · [Source Repair](https://github.com/pentaxis93/principles/blob/main/principles/source-repair.md) · [Honest Signal](https://github.com/pentaxis93/principles/blob/main/principles/honest-signal.md) | Implementation | seed |
 | **Flutter wherever there is a user interface** — every human-facing surface is one expressive, declarative Flutter codebase: the interface expressed once, coherent everywhere, maintained once. | [Single Home](https://github.com/pentaxis93/principles/blob/main/principles/single-home.md) · [Parsimony](https://github.com/pentaxis93/principles/blob/main/principles/parsimony.md) · [Transmission](https://github.com/pentaxis93/principles/blob/main/principles/transmission.md) | User interface | seed |
@@ -75,7 +76,7 @@ fleshing is a later, sequenced move, not this register's job.
 - Membership is recorded in the table above. A rule earns a row when a master
   has settled it for a class of work spanning more than one pentaxis93 project.
 - A rule enters as a **seed** — its evocative capture preserved intact — and is
-  **fleshed one at a time**, in the sequence the homing epic carries (#6). A
+  **fleshed one at a time**, in the sequence the framing epic carries (#14). A
   seed's row gains a link to its fleshed home when that fleshing lands.
 - Fleshing a rule is never flattening it: the rich capture is the seed of the
   fleshed form, not a cost to economize.
