@@ -183,7 +183,7 @@ behind its contract.
   layers; Right Action shapes the unit of work that runs across them — the
   contract is the surface, Right Action an idempotent act that reads it and
   satisfies it. Two rules, not one.
-- **kin** — *Rust wherever it can be done cleanly* ([register](README.md)): in a
+- **kin** — *Rust wherever it can be done cleanly* ([convention](../conventions/README.md)): in a
   Rust component the contract is a trait the compiler enforces — the type system
   makes the boundary structural, checked before the code runs, which is the
   *checkable-and-enforced* requirement met for free.
