@@ -44,7 +44,7 @@ each has one home.
 |---|---|---|---|---|
 | **Universal principle** | domain-neutral invariant | discovered | evolves only as the corpus evolves — rare, high-deliberation | [`pentaxis93/principles`](https://github.com/pentaxis93/principles) |
 | **Architectural golden rule** | near-universal, cross-domain | master-curated | re-curated when a master revises the standing answer | [`golden-rules/`](golden-rules/) |
-| **Convention** | domain-specific (a language, a framework, a practice) | master-curated | re-curated per domain | the conventions register, a sibling register to `golden-rules/` |
+| **Convention** | domain-specific (a language, a framework, a practice) | master-curated | re-curated per domain | [the conventions register](conventions/), a sibling register to `golden-rules/` |
 | **Decision / ADR** | a specific, singular choice | decided | frozen — superseded, never edited | [`adr/`](adr/) |
 | **Concrete asset** | a concrete instance | built | revised freely as the artifact improves | the repository's asset files |
 
