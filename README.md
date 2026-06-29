@@ -10,6 +10,10 @@ durable, shared practice.
 
 ## Contents
 
+- [`ONTOLOGY.md`](ONTOLOGY.md) — the ontology of the shared-knowledge body: its
+  two hierarchies (stature and authority), the five strata and where each lives,
+  and how the two compose. The map for locating any asset's band, and the
+  generalization of `pentaxis93/principles`'s `ONTOLOGY.md` up one level.
 - [`adr/`](adr/) — architectural decision records for cross-cutting decisions
   that apply across more than one pentaxis93 project. See the
   [register](adr/README.md) for the index.
