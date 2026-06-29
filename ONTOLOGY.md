@@ -67,7 +67,8 @@ the defining discipline of the whole body
   that makes the architectural rules concrete enough for the agents that build
   the code. It is **`rooted-in`** principle and operationalizes the architectural
   rules for one domain. Members: *Rust wherever it can be done cleanly*, *Flutter
-  wherever there is a user interface*, *the multi-dimensional contract*.
+  wherever there is a user interface*, *the multi-dimensional contract*,
+  *Roadmap graph*.
 - A **decision / ADR** is a single past choice carrying its rationale,
   **`traces-to`** the principles it serves, and may **`instantiate`** a golden
   rule. It is frozen: a superseded decision is tombstoned, not rewritten. Member:

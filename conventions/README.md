@@ -35,10 +35,10 @@ A convention cites principles as roots; it never lives *among* them.
 
 ## The conventions
 
-The conventions below are the stratum's founding members. Each enters as an
-**unfleshed seed** — its evocative capture held intact in the stratum's tracker
-work — and is fleshed into its own durable form **one at a time**, on the
-operator-pointed evidence for each. A convention's **Status** links to its
+The conventions below are the stratum's current members. A convention may enter
+as an **unfleshed seed** — its evocative capture held intact in the stratum's
+tracker work — and is fleshed into its own durable form **one at a time**, on
+the operator-pointed evidence for each. A convention's **Status** links to its
 fleshed home once that fleshing lands.
 
 | Convention | Rooted in | Domain | Status |
@@ -46,6 +46,7 @@ fleshed home once that fleshing lands.
 | **Rust wherever it can be done cleanly** — where a component can be written cleanly in Rust, Rust is the default, not a candidate; correctness made structural by the type system. | [Verifiable Completion](https://github.com/pentaxis93/principles/blob/main/principles/verifiable-completion.md) · [Source Repair](https://github.com/pentaxis93/principles/blob/main/principles/source-repair.md) · [Honest Signal](https://github.com/pentaxis93/principles/blob/main/principles/honest-signal.md) | Implementation | seed |
 | **Flutter wherever there is a user interface** — every human-facing surface is one expressive, declarative Flutter codebase: the interface expressed once, coherent everywhere, maintained once. | [Single Home](https://github.com/pentaxis93/principles/blob/main/principles/single-home.md) · [Parsimony](https://github.com/pentaxis93/principles/blob/main/principles/parsimony.md) · [Transmission](https://github.com/pentaxis93/principles/blob/main/principles/transmission.md) | User interface | seed |
 | **Multi-dimensional contract** — the contract not as a single flat surface but as one carrying several distinct dimensions at once: the pragmatic contract layer that makes the architectural rules concrete enough for an execution agent to build to. | [Contract-First](https://github.com/pentaxis93/principles/blob/main/compositions/contract-first.md) *(likely; to be confirmed at fleshing)* | Contract design for the coding agents | seed |
+| **Roadmap graph** — each repo has exactly one roadmap issue: the canonical entry point and sole authoritative home of that repo's work-unit graph. | [Single Home](https://github.com/pentaxis93/principles/blob/main/principles/single-home.md) · [Sovereignty](https://github.com/pentaxis93/principles/blob/main/principles/sovereignty.md) | Work tracking | [fleshed](roadmap-graph.md) |
 
 ## Register norms
 
