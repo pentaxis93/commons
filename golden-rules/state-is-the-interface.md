@@ -103,10 +103,10 @@ state is also what decides which pressure is worth answering.
 ## Boundaries
 
 - This rule is **not idempotence.** That an operation reads state, infers its
-  work, and converges on rerun is the sibling rule *One idempotent operation
-  that infers its work from state* (the shape of the operation); this rule
-  governs *that components meet only in state* (the medium between them). The
-  medium and the act on it are distinct.
+  work, and converges on rerun is the sibling rule *Right Action*
+  ([fleshed](right-action.md)) — the shape of the operation; this rule governs
+  *that components meet only in state* (the medium between them). The medium and
+  the act on it are distinct.
 - "Legible" and "inspectable" are real but **not absolute.** The rule's claim is
   that the *coordination truth* is written down — not that all of a component's
   behavior is. A durable store can be wholly inspectable; the larger causal
@@ -157,13 +157,13 @@ consults it rather than restating it.
 
 ## Relations
 
-- **sibling** — *Architectural layers bounded by contracts* ([register](README.md)):
+- **sibling** — *Architectural layers bounded by contracts* ([fleshed](architectural-layers-bounded-by-contracts.md)):
   contracts name the boundary; this rule names what crosses it — durable state,
   not calls.
-- **sibling** — *One idempotent operation that infers its work from state*
-  ([register](README.md)): state-as-interface is the medium actors meet in; the
-  idempotent operation is the single act that reads that medium and converges.
-  The medium and the act are two rules, not one.
+- **sibling** — *Right Action* ([fleshed](right-action.md)): state-as-interface
+  is the medium actors meet in; Right Action is the single idempotent operation
+  that reads that medium and converges. The medium and the act are two rules, not
+  one.
 - **roots** — Traceability, Verifiable Completion, Single Home (above).
 
 ## Sources

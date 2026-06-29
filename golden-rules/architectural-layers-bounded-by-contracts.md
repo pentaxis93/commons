@@ -179,11 +179,10 @@ behind its contract.
   this rule names the *boundary* between layers (the contract); the state rule
   names the *medium* components meet through (durable state, not calls). Boundary
   and medium are distinct rules a system holds together.
-- **sibling** — *One idempotent operation that infers its work from state*
-  ([register](README.md)): this rule bounds the layers; that rule shapes the
-  unit of work that runs across them — the contract is the surface, the
-  idempotent operation is an act that reads it and satisfies it. Two rules, not
-  one.
+- **sibling** — *Right Action* ([fleshed](right-action.md)): this rule bounds the
+  layers; Right Action shapes the unit of work that runs across them — the
+  contract is the surface, Right Action an idempotent act that reads it and
+  satisfies it. Two rules, not one.
 - **kin** — *Rust wherever it can be done cleanly* ([register](README.md)): in a
   Rust component the contract is a trait the compiler enforces — the type system
   makes the boundary structural, checked before the code runs, which is the
