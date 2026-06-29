@@ -86,35 +86,35 @@ The format expresses the work-unit state spectrum:
 - spec'd unit: an issue number exists and the body is ready to execute
 - landed: the line is marked as landed, for example `✓ #N — Title`
 
+**Rendering.** A roadmap node's listing is written in Markdown and is **not** wrapped in a code fence: every identifier must render as a **live link**, because navigation is by descending those links, and a fenced listing renders link-dead and breaks the descent. A same-repo `#N` autolinks; a cross-repository reference is written `owner/repo#N` (which autolinks) or as an explicit Markdown link.
+
 ## Example
 
 A repo roadmap lists the repo's epics and top-level units — its immediate
 children — and homes the cross-branch edges among their descendants:
 
-```text
-# acme/widgets — roadmap
+**`acme/widgets` — roadmap**
 
-#10 — Storage epic
-#20 — API epic
-#31 — Adopt the house style guide        after #10 · by design
+- acme/widgets#10 — Storage epic
+- acme/widgets#20 — API epic
+- acme/widgets#31 — Adopt the house style guide — after acme/widgets#10 · by design
 
-Cross-branch
-  #24 needs #13 — the API serializer needs the storage schema
+*Cross-branch*
 
-Unplaced
-  #45 — Telemetry spike (awaiting placement)
-```
+- acme/widgets#24 needs acme/widgets#13 — the API serializer needs the storage schema
+
+*Unplaced*
+
+- acme/widgets#45 — Telemetry spike (awaiting placement)
 
 One of those epics is itself a roadmap node, listing only *its* immediate
 children and their same-parent sequence:
 
-```text
-# #20 — API epic — roadmap
+**acme/widgets#20 — API epic — roadmap**
 
-#22 — Define the API contract
-#23 — Implement the handlers     needs #22
-#24 — Add the serializer         needs #23
-```
+- acme/widgets#22 — Define the API contract
+- acme/widgets#23 — Implement the handlers — needs acme/widgets#22
+- acme/widgets#24 — Add the serializer — needs acme/widgets#23
 
 The same-parent edges `#23 needs #22` and `#24 needs #23` live in the epic that
 parents them. The cross-branch edge `#24 needs #13` — `#24` is under `#20`, `#13`
