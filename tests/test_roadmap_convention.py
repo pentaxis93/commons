@@ -29,6 +29,37 @@ class RoadmapConventionTests(unittest.TestCase):
         self.assertIn("[fleshed](roadmap-graph.md)", rows[0])
         self.assertTrue(CONVENTION.exists(), "expected register link target to exist")
 
+    def test_roadmap_convention_defines_active_frontier_grammar(self):
+        text = CONVENTION.read_text(encoding="utf-8")
+
+        self.assertIn("`**Active frontier:** #N — Title`", text)
+        self.assertIn("`**Active frontiers:** #A — Title A · #B — Title B`", text)
+        self.assertIn("`▶ #N — Title`", text)
+        self.assertIn("`▶ #N — Container title — frontier: #M`", text)
+        self.assertIn("reader follows only `▶` branches", text)
+
+    def test_roadmap_convention_defines_done_but_open_container_grammar(self):
+        text = CONVENTION.read_text(encoding="utf-8")
+
+        self.assertIn("`✓ #N — Container title — held open by #M`", text)
+        self.assertIn("done-but-open container", text)
+        self.assertIn("`✓ #N — Title — held open by #M`", text)
+
+    def test_roadmap_convention_uses_single_completion_marker(self):
+        text = CONVENTION.read_text(encoding="utf-8")
+
+        self.assertIn("The same `✓` marker is used", text)
+        self.assertIn("`✓ #N — Title`", text)
+        self.assertNotIn("✅", text)
+
+    def test_roadmap_convention_example_exercises_navigation_markers(self):
+        text = CONVENTION.read_text(encoding="utf-8")
+
+        self.assertIn("**Active frontier:** acme/widgets#24 — Add the serializer", text)
+        self.assertIn("✓ acme/widgets#10 — Storage epic — held open by acme/widgets#24", text)
+        self.assertIn("▶ acme/widgets#20 — API epic — frontier: acme/widgets#24", text)
+        self.assertIn("▶ acme/widgets#24 — Add the serializer", text)
+
     def test_local_markdown_links_resolve(self):
         for path in (REGISTER, CONVENTION):
             with self.subTest(path=path.relative_to(ROOT)):

@@ -43,9 +43,12 @@ containment hierarchy, and each piece has exactly one home.
   case — the parent *is* the common ancestor, so the edge is homed there.
 
 - **Navigation is hierarchical, top-down.** A reader reaches a live work unit by
-  descending from the top through active links, following only active branches.
-  Each roadmap cites its child roadmaps by link rather than absorbing their
-  content; the descent stops at the unit issue, which holds the work itself.
+  descending from the top through explicitly marked active links, following only
+  active branches. Each roadmap cites its child roadmaps by link rather than
+  absorbing their content; the descent stops at the unit issue, which holds the
+  work itself. A roadmap that has live work must surface its active frontier
+  before its full child outline, so the first navigational answer is the unit or
+  branch where work currently sits, not the first unlanded container.
 
 ## Body format
 
@@ -69,8 +72,33 @@ annotation when the order has a reason:
 
 Membership is shown by indentation beneath the parent line. Landed units are
 marked with `✓` before the issue number, so done and pending work separate at a
-glance. Every roadmap keeps a standing `Unplaced` section for child work units
-that exist but have not yet been given a position.
+glance. The same `✓` marker is used for landed leaf units and landed containers;
+do not use alternate completion emoji or prose-only completion marks.
+
+A roadmap node with live work begins its listing with an active-frontier lead:
+
+- `**Active frontier:** #N — Title` for one current unit
+- `**Active frontiers:** #A — Title A · #B — Title B` when multiple independent
+  units are current
+
+The lead must name the unit or units where work currently sits. The child
+outline then marks the active descent path with `▶`:
+
+- `▶ #N — Title` marks an active leaf unit.
+- `▶ #N — Container title — frontier: #M` marks a container or tier whose active
+  descendant is `#M`.
+
+An unmarked pending line is pending work, not a navigational instruction. The
+reader follows only `▶` branches until reaching the active frontier named by the
+lead.
+
+A container whose own children are complete but which remains open as a gate on
+downstream work is marked landed and names the downstream holder:
+
+- `✓ #N — Container title — held open by #M`
+
+Every roadmap keeps a standing `Unplaced` section for child work units that
+exist but have not yet been given a position.
 
 A **cross-branch dependency** — whose endpoints are not same-parent siblings —
 is recorded only at its nearest-common-ancestor node, in a `Cross-branch`
@@ -84,7 +112,12 @@ The format expresses the work-unit state spectrum:
 - stub: an issue number exists, but the unit is committed and not yet fully
   specified
 - spec'd unit: an issue number exists and the body is ready to execute
+- active: the current unit is named in the active-frontier lead and marked in
+  the outline, for example `▶ #N — Title`; an active container is
+  `▶ #N — Title — frontier: #M`
 - landed: the line is marked as landed, for example `✓ #N — Title`
+- done-but-open container: the container's own work is landed, but closure waits
+  on downstream work, for example `✓ #N — Title — held open by #M`
 
 **Rendering.** A roadmap node's listing is written in Markdown and is **not** wrapped in a code fence: every identifier must render as a **live link**, because navigation is by descending those links, and a fenced listing renders link-dead and breaks the descent. A same-repo `#N` autolinks; a cross-repository reference is written `owner/repo#N` (which autolinks) or as an explicit Markdown link.
 
@@ -95,8 +128,10 @@ children — and homes the cross-branch edges among their descendants:
 
 **`acme/widgets` — roadmap**
 
-- acme/widgets#10 — Storage epic
-- acme/widgets#20 — API epic
+**Active frontier:** acme/widgets#24 — Add the serializer
+
+- ✓ acme/widgets#10 — Storage epic — held open by acme/widgets#24
+- ▶ acme/widgets#20 — API epic — frontier: acme/widgets#24
 - acme/widgets#31 — Adopt the house style guide — after acme/widgets#10 · by design
 
 *Cross-branch*
@@ -112,9 +147,11 @@ children and their same-parent sequence:
 
 **acme/widgets#20 — API epic — roadmap**
 
-- acme/widgets#22 — Define the API contract
-- acme/widgets#23 — Implement the handlers — needs acme/widgets#22
-- acme/widgets#24 — Add the serializer — needs acme/widgets#23
+**Active frontier:** acme/widgets#24 — Add the serializer
+
+- ✓ acme/widgets#22 — Define the API contract
+- ✓ acme/widgets#23 — Implement the handlers — needs acme/widgets#22
+- ▶ acme/widgets#24 — Add the serializer — needs acme/widgets#23
 
 The same-parent edges `#23 needs #22` and `#24 needs #23` live in the epic that
 parents them. The cross-branch edge `#24 needs #13` — `#24` is under `#20`, `#13`
